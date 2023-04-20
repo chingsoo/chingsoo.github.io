@@ -230,6 +230,13 @@
   </url>
   
   <url>
+    <loc>https://chingsoo.github.io/tags/Windows/</loc>
+    <lastmod>2023-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/tags/Hexo/</loc>
     <lastmod>2023-04-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -244,14 +251,14 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/Windows/</loc>
+    <loc>https://chingsoo.github.io/tags/MSSQL/</loc>
     <lastmod>2023-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/MSSQL/</loc>
+    <loc>https://chingsoo.github.io/tags/PowerShell/</loc>
     <lastmod>2023-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -272,14 +279,14 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/PowerShell/</loc>
+    <loc>https://chingsoo.github.io/tags/SSMS/</loc>
     <lastmod>2023-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/SSMS/</loc>
+    <loc>https://chingsoo.github.io/tags/CMD/</loc>
     <lastmod>2023-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -299,24 +306,10 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://chingsoo.github.io/tags/CMD/</loc>
-    <lastmod>2023-04-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
     <loc>https://chingsoo.github.io/categories/Apache/</loc>
-    <lastmod>2023-04-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chingsoo.github.io/categories/Hexo/</loc>
     <lastmod>2023-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -330,6 +323,13 @@
   </url>
   
   <url>
+    <loc>https://chingsoo.github.io/categories/Hexo/</loc>
+    <lastmod>2023-04-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/categories/MSSQL/</loc>
     <lastmod>2023-04-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -337,14 +337,14 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/categories/Perl/</loc>
+    <loc>https://chingsoo.github.io/categories/PowerShell/</loc>
     <lastmod>2023-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/categories/PowerShell/</loc>
+    <loc>https://chingsoo.github.io/categories/Perl/</loc>
     <lastmod>2023-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
