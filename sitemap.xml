@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/404.html</loc>
-    
-    <lastmod>2023-04-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://chingsoo.github.io/iis-redirect-https/</loc>
     
     <lastmod>2023-04-24</lastmod>
@@ -307,13 +298,6 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/Windows/</loc>
-    <lastmod>2023-04-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chingsoo.github.io/tags/MSSQL/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -321,7 +305,28 @@
   </url>
   
   <url>
+    <loc>https://chingsoo.github.io/tags/Windows/</loc>
+    <lastmod>2023-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/PowerShell/</loc>
+    <lastmod>2023-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/tags/Django/</loc>
+    <lastmod>2023-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/404/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -342,13 +347,6 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/PowerShell/</loc>
-    <lastmod>2023-04-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chingsoo.github.io/tags/Perl/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -357,13 +355,6 @@
   
   <url>
     <loc>https://chingsoo.github.io/tags/special-variables/</loc>
-    <lastmod>2023-04-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chingsoo.github.io/tags/404/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -407,6 +398,13 @@
   </url>
   
   <url>
+    <loc>https://chingsoo.github.io/categories/MSSQL/</loc>
+    <lastmod>2023-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/categories/Windows/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -414,7 +412,7 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/categories/MSSQL/</loc>
+    <loc>https://chingsoo.github.io/categories/PowerShell/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -429,13 +427,6 @@
   
   <url>
     <loc>https://chingsoo.github.io/categories/IIS/</loc>
-    <lastmod>2023-04-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chingsoo.github.io/categories/PowerShell/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
