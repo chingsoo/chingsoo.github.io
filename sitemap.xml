@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chingsoo.github.io/hexo-404/</loc>
+    
+    <lastmod>2023-04-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/404.html</loc>
+    
+    <lastmod>2023-04-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/404.html</loc>
+    
+    <lastmod>2023-04-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/iis-redirect-https/</loc>
     
     <lastmod>2023-04-24</lastmod>
@@ -259,6 +286,13 @@
   </url>
   
   <url>
+    <loc>https://chingsoo.github.io/tags/HSTS/</loc>
+    <lastmod>2023-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/tags/Hexo/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -287,7 +321,21 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/HSTS/</loc>
+    <loc>https://chingsoo.github.io/tags/Django/</loc>
+    <lastmod>2023-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/IIS/</loc>
+    <lastmod>2023-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/HTTPS/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -295,13 +343,6 @@
   
   <url>
     <loc>https://chingsoo.github.io/tags/PowerShell/</loc>
-    <lastmod>2023-04-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chingsoo.github.io/tags/Django/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -322,21 +363,14 @@
   </url>
   
   <url>
+    <loc>https://chingsoo.github.io/tags/404/</loc>
+    <lastmod>2023-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/tags/SSMS/</loc>
-    <lastmod>2023-04-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chingsoo.github.io/tags/IIS/</loc>
-    <lastmod>2023-04-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chingsoo.github.io/tags/SSL/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -350,7 +384,7 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/HTTPS/</loc>
+    <loc>https://chingsoo.github.io/tags/SSL/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -387,13 +421,6 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/categories/PowerShell/</loc>
-    <lastmod>2023-04-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chingsoo.github.io/categories/Django/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -401,14 +428,21 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/categories/Perl/</loc>
+    <loc>https://chingsoo.github.io/categories/IIS/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/categories/IIS/</loc>
+    <loc>https://chingsoo.github.io/categories/PowerShell/</loc>
+    <lastmod>2023-04-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/categories/Perl/</loc>
     <lastmod>2023-04-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
