@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>(MSSQL)datetime處理 - CM Cheng Notes</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="CM Cheng Notes"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="CM Cheng Notes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="&amp;amp;nbsp; 現在時間1SELECT GETDATE()  取得現在年、月、日123SELECT YEAR(GETDATE())SELECT MONTH(GETDATE())SELECT DAY(GETDATE())"><meta property="og:type" content="blog"><meta property="og:title" content="(MSSQL)datetime處理"><meta property="og:url" content="https://chingsoo.github.io/mssql-datetime/"><meta property="og:site_name" content="CM Cheng Notes"><meta property="og:description" content="&amp;amp;nbsp; 現在時間1SELECT GETDATE()  取得現在年、月、日123SELECT YEAR(GETDATE())SELECT MONTH(GETDATE())SELECT DAY(GETDATE())"><meta property="og:locale" content="zh_TW"><meta property="og:image" content="https://chingsoo.github.io/img/og_image.png"><meta property="article:published_time" content="2022-09-07T03:10:49.000Z"><meta property="article:modified_time" content="2023-04-25T03:27:05.511Z"><meta property="article:author" content="CM Cheng"><meta property="article:tag" content="MSSQL"><meta property="article:tag" content="SQL"><meta property="article:tag" content="DATETIME"><meta property="article:tag" content="DATEPART"><meta property="article:tag" content="DATEDIFF"><meta property="article:tag" content="DATEADD"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://chingsoo.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://chingsoo.github.io/mssql-datetime/"},"headline":"(MSSQL)datetime處理","image":["https://chingsoo.github.io/img/og_image.png"],"datePublished":"2022-09-07T03:10:49.000Z","dateModified":"2023-04-25T03:27:05.511Z","author":{"@type":"Person","name":"CM Cheng"},"publisher":{"@type":"Organization","name":"CM Cheng Notes","logo":{"@type":"ImageObject","url":"https://chingsoo.github.io/img/logo.png"}},"description":"&amp;nbsp; 現在時間1SELECT GETDATE()  取得現在年、月、日123SELECT YEAR(GETDATE())SELECT MONTH(GETDATE())SELECT DAY(GETDATE())"}</script><link rel="canonical" href="https://chingsoo.github.io/mssql-datetime/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-WPWVL9NQ11" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-WPWVL9NQ11');</script><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+          Array
+              .from(document.querySelectorAll('.tab-content'))
+              .forEach($tab => {
+                  $tab.classList.add('is-hidden');
+              });
+          Array
+              .from(document.querySelectorAll('.tabs li'))
+              .forEach($tab => {
+                  $tab.classList.remove('is-active');
+              });
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.png" alt="CM Cheng Notes" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="文章目錄" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜尋" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-09-07T03:10:49.000Z" title="2022/9/7 上午11:10:49">2022-09-07</time>發表</span><span class="level-item"><a class="link-muted" href="/categories/MSSQL/">MSSQL</a></span></div></div><h1 class="title is-3 is-size-4-mobile">(MSSQL)datetime處理</h1><div class="content"><p>&amp;nbsp;</p>
+<h1 id="現在時間"><a href="#現在時間" class="headerlink" title="現在時間"></a>現在時間</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> GETDATE()</span><br></pre></td></tr></table></figure>
+
+<h1 id="取得現在年、月、日"><a href="#取得現在年、月、日" class="headerlink" title="取得現在年、月、日"></a>取得現在年、月、日</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">YEAR</span>(GETDATE())</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MONTH</span>(GETDATE())</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DAY</span>(GETDATE())</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+
+<h1 id="DATEPART"><a href="#DATEPART" class="headerlink" title="DATEPART"></a>DATEPART</h1><table>
+<thead>
+<tr>
+<th>Datepart</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>year, yyyy, yy</td>
+<td>年</td>
+</tr>
+<tr>
+<td>month, mm, m</td>
+<td>月</td>
+</tr>
+<tr>
+<td>day, dd, d</td>
+<td>日</td>
+</tr>
+<tr>
+<td>hour, hh</td>
+<td>時</td>
+</tr>
+<tr>
+<td>minute, n</td>
+<td>分</td>
+</tr>
+<tr>
+<td>second, ss, s</td>
+<td>秒</td>
+</tr>
+<tr>
+<td>millisecond, ms</td>
+<td>毫秒</td>
+</tr>
+<tr>
+<td>microsecond, mcs</td>
+<td>微秒</td>
+</tr>
+<tr>
+<td>nanosecond, ns</td>
+<td>毫微秒</td>
+</tr>
+<tr>
+<td>quarter, qq, q</td>
+<td>季</td>
+</tr>
+<tr>
+<td>dayofyear, dy, y</td>
+<td>一年中的第幾天</td>
+</tr>
+<tr>
+<td>week, wk, ww</td>
+<td>一年中的第幾週</td>
+</tr>
+<tr>
+<td>weekday, dw</td>
+<td>星期幾</td>
+</tr>
+<tr>
+<td>TZoffset, tz</td>
+<td>時區 time zone offset，單位是分鐘</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATEPART(yy,<span class="string">&#x27;2010-10-30 12:20:30&#x27;</span>)</span><br><span class="line"><span class="comment">-- 2010</span></span><br><span class="line"><span class="keyword">SELECT</span> DATEPART(m,<span class="string">&#x27;2010-10-30 12:20:30&#x27;</span>)</span><br><span class="line"><span class="comment">-- 10</span></span><br><span class="line"><span class="keyword">SELECT</span> DATEPART(d,<span class="string">&#x27;2010-10-30 12:20:30&#x27;</span>)</span><br><span class="line"><span class="comment">-- 30</span></span><br><span class="line"><span class="keyword">SELECT</span> DATEPART(hh,<span class="string">&#x27;2010-10-30 12:20:30&#x27;</span>)</span><br><span class="line"><span class="comment">-- 12</span></span><br><span class="line"><span class="keyword">SELECT</span> DATEPART(mi,<span class="string">&#x27;2010-10-30 12:20:30&#x27;</span>)</span><br><span class="line"><span class="comment">-- 20</span></span><br><span class="line"><span class="keyword">SELECT</span> DATEPART(ww,<span class="string">&#x27;2010-10-30 12:20:30&#x27;</span>)</span><br><span class="line"><span class="comment">-- 44</span></span><br><span class="line"><span class="keyword">SELECT</span> DATEPART(q,<span class="string">&#x27;2010-10-30 12:20:30&#x27;</span>)</span><br><span class="line"><span class="comment">-- 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 注意，y不是年，是一年中的第幾天</span></span><br><span class="line"><span class="keyword">SELECT</span> DATEPART(y,<span class="string">&#x27;2010-10-30 12:20:30&#x27;</span>)</span><br><span class="line"><span class="comment">-- 303</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">100</span>) <span class="operator">-</span> mon dd yyyy hh:mmAM (<span class="keyword">or</span> PM)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">101</span>) <span class="operator">-</span> mm<span class="operator">/</span>dd<span class="operator">/</span>yyyy</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">102</span>) <span class="operator">-</span> yyyy.mm.dd</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">103</span>) <span class="operator">-</span> dd<span class="operator">/</span>mm<span class="operator">/</span>yyyy</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">104</span>) <span class="operator">-</span> dd.mm.yyyy</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">105</span>) <span class="operator">-</span> dd<span class="operator">-</span>mm<span class="operator">-</span>yyyy</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">106</span>) <span class="operator">-</span> dd mon yyyy</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">107</span>) <span class="operator">-</span> mon dd, yyyy</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">108</span>) <span class="operator">-</span> hh:mm:ss</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">109</span>) <span class="operator">-</span> mon dd yyyy hh:mm:ss:mmmAM (<span class="keyword">or</span> PM) </span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">110</span>) <span class="operator">-</span> mm<span class="operator">-</span>dd<span class="operator">-</span>yyyy</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">111</span>) <span class="operator">-</span> yyyy<span class="operator">/</span>mm<span class="operator">/</span>dd</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">112</span>) <span class="operator">-</span> yyyymmdd</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">113</span>) <span class="operator">-</span> dd mon yyyy hh:mm:ss:mmm</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">114</span>) <span class="operator">-</span> hh:mm:ss:mmm(<span class="number">24</span>h)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">120</span>) <span class="operator">-</span> yyyy<span class="operator">-</span>mm<span class="operator">-</span>dd hh:mm:ss(<span class="number">24</span>h)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">121</span>) <span class="operator">-</span> yyyy<span class="operator">-</span>mm<span class="operator">-</span>dd hh:mm:ss.mmm</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">126</span>) <span class="operator">-</span> yyyy<span class="operator">-</span>mm<span class="operator">-</span>ddThh:mm:ss.mmm</span><br><span class="line"><span class="keyword">SELECT</span> replace(<span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">111</span>), <span class="operator">-</span><span class="operator">/</span><span class="operator">-</span>, <span class="operator">-</span> <span class="operator">-</span>) <span class="operator">-</span> yyyy mm dd</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">convert</span>(<span class="type">varchar</span>(<span class="number">7</span>), getdate(), <span class="number">126</span>)                 <span class="operator">-</span> yyyy<span class="operator">-</span>mm</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">right</span>(<span class="keyword">convert</span>(<span class="type">varchar</span>, getdate(), <span class="number">106</span>), <span class="number">8</span>)          <span class="operator">-</span> mon yyyy</span><br></pre></td></tr></table></figure>
+
+<h1 id="DATEDIFF"><a href="#DATEDIFF" class="headerlink" title="DATEDIFF"></a>DATEDIFF</h1><h2 id="DATEDIFF-Syntax"><a href="#DATEDIFF-Syntax" class="headerlink" title="DATEDIFF Syntax"></a>DATEDIFF Syntax</h2><p>DATEDIFF是計算兩個日期間的間隔，傳回帶正負號的整數.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATEDIFF(datepart, startdate, enddate)</span><br></pre></td></tr></table></figure>
+
+<p><strong>datepart</strong>：<em>startdate</em> 和 <em>enddate</em> 之間差異的單位。d<em>atepart</em>值不能在變數中指定，也不能是以引號括住的字串 (例如 <code>&#39;month&#39;</code>)。<br><strong>startdate</strong>：開始日期<br><strong>enddate</strong>：結束日期</p>
+<h2 id="datepart-Arguments"><a href="#datepart-Arguments" class="headerlink" title="datepart Arguments"></a>datepart Arguments</h2><table>
+<thead>
+<tr>
+<th>datepart name</th>
+<th>datepart 縮寫</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>year</td>
+<td>yy, yyyy</td>
+</tr>
+<tr>
+<td>quarter</td>
+<td>qq, q</td>
+</tr>
+<tr>
+<td>month</td>
+<td>mm, m</td>
+</tr>
+<tr>
+<td>dayofyear</td>
+<td>dy</td>
+</tr>
+<tr>
+<td>day</td>
+<td>dd, d</td>
+</tr>
+<tr>
+<td>week</td>
+<td>wk, ww</td>
+</tr>
+<tr>
+<td>hour</td>
+<td>hh</td>
+</tr>
+<tr>
+<td>minute</td>
+<td>mi, n</td>
+</tr>
+<tr>
+<td>second</td>
+<td>ss, s</td>
+</tr>
+<tr>
+<td>millisecond</td>
+<td>ms</td>
+</tr>
+<tr>
+<td>microsecond</td>
+<td>mcs</td>
+</tr>
+<tr>
+<td>nanosecond</td>
+<td>ns</td>
+</tr>
+</tbody></table>
+<h2 id="startdate-x2F-enddate-可解析格式"><a href="#startdate-x2F-enddate-可解析格式" class="headerlink" title="startdate&#x2F;enddate 可解析格式"></a>startdate&#x2F;enddate 可解析格式</h2><ul>
+<li>date</li>
+<li>datetime</li>
+<li>datetimeoffset</li>
+<li>datetime2</li>
+<li>smalldatetime</li>
+<li>time</li>
+</ul>
+<h1 id="DATEADD"><a href="#DATEADD" class="headerlink" title="DATEADD"></a>DATEADD</h1><p>DATEADD會將 <em><strong>數值 (帶正負號的整數)</strong></em> 加入輸入日期的datepart，並傳回修改的日期&#x2F;時間值。</p>
+<h2 id="DATEADD-Syntax"><a href="#DATEADD-Syntax" class="headerlink" title="DATEADD Syntax"></a>DATEADD Syntax</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DATEADD (datepart , number , <span class="type">date</span> )</span><br></pre></td></tr></table></figure>
+
+<p>datepart：<em>startdate</em> 和 <em>enddate</em> 之間差異的單位<br>number：指定的數值(帶正負號的整數)<br>date：要被加上的原始日期</p>
+<h2 id="datepart-arguments"><a href="#datepart-arguments" class="headerlink" title="datepart arguments"></a>datepart arguments</h2><p>同 <strong>DATEDIFF arguments</strong></p>
+<h2 id="date-可解析格式"><a href="#date-可解析格式" class="headerlink" title="date 可解析格式"></a>date 可解析格式</h2><p>同 <strong>DATEDIFF startdate&#x2F;enddate 可解析格式</strong></p>
+<h1 id="DATEADD-x2F-DATEDIFF綜合應用"><a href="#DATEADD-x2F-DATEDIFF綜合應用" class="headerlink" title="DATEADD&#x2F;DATEDIFF綜合應用"></a>DATEADD&#x2F;DATEDIFF綜合應用</h1><p>Last Day of Previous Month</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATEADD(s,<span class="number">-1</span>,DATEADD(mm, DATEDIFF(m,<span class="number">0</span>,GETDATE()),<span class="number">0</span>)) <span class="keyword">AS</span> LastDay_PreviousMonth</span><br></pre></td></tr></table></figure>
+
+<p>Last Day of Current Month</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATEADD(s,<span class="number">-1</span>,DATEADD(mm, DATEDIFF(m,<span class="number">0</span>,GETDATE())<span class="operator">+</span><span class="number">1</span>,<span class="number">0</span>)) <span class="keyword">AS</span> LastDay_CurrentMonth</span><br></pre></td></tr></table></figure>
+
+<p>Last Day of Next Month</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> DATEADD(s,<span class="number">-1</span>,DATEADD(mm, DATEDIFF(m,<span class="number">0</span>,GETDATE())<span class="operator">+</span><span class="number">2</span>,<span class="number">0</span>)) <span class="keyword">AS</span> LastDay_NextMonth</span><br></pre></td></tr></table></figure>
+</div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/MSSQL/">MSSQL</a><a class="link-muted mr-2" rel="tag" href="/tags/SQL/">SQL</a><a class="link-muted mr-2" rel="tag" href="/tags/DATETIME/">DATETIME</a><a class="link-muted mr-2" rel="tag" href="/tags/DATEPART/">DATEPART</a><a class="link-muted mr-2" rel="tag" href="/tags/DATEDIFF/">DATEDIFF</a><a class="link-muted mr-2" rel="tag" href="/tags/DATEADD/">DATEADD</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/mssql-dbcc-checkident/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">(MSSQL)檢查/重置自動編號(Identity)欄位值-DBCC CHECKIDENT</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/django-make-password/"><span class="level-item">(Django)資料庫內密碼欄位加密 - make_password</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/my_avator.PNG" alt="CM Cheng"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">CM Cheng</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Taiwan</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">30</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分類</p><a href="/categories"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">標籤</p><a href="/tags"><p class="title">26</p></a></div></div></nav></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分類</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Apache/"><span class="level-start"><span class="level-item">Apache</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Django/"><span class="level-start"><span class="level-item">Django</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/Hexo/"><span class="level-start"><span class="level-item">Hexo</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/IIS/"><span class="level-start"><span class="level-item">IIS</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/MSSQL/"><span class="level-start"><span class="level-item">MSSQL</span></span><span class="level-end"><span class="level-item tag">10</span></span></a></li><li><a class="level is-mobile" href="/categories/Perl/"><span class="level-start"><span class="level-item">Perl</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/PowerShell/"><span class="level-start"><span class="level-item">PowerShell</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/Windows/"><span class="level-start"><span class="level-item">Windows</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-10-31T08:35:09.000Z">2023-10-31</time></p><p class="title"><a href="/django-get-url-and-appname/">(Django)取得目前URL/app_name</a></p><p class="categories"><a href="/categories/Django/">Django</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-04-24T05:14:36.000Z">2023-04-24</time></p><p class="title"><a href="/hexo-404/">hexo建立404頁面</a></p><p class="categories"><a href="/categories/Hexo/">Hexo</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-04-20T04:59:06.000Z">2023-04-20</time></p><p class="title"><a href="/mssql-restoring/">(MSSQL)資料庫顯示「正在還原」無法使用處理方法</a></p><p class="categories"><a href="/categories/MSSQL/">MSSQL</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-04-18T09:05:30.000Z">2023-04-18</time></p><p class="title"><a href="/301redirect/">htaccess 301 轉址</a></p><p class="categories"><a href="/categories/Apache/">Apache</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-04-18T08:50:17.000Z">2023-04-18</time></p><p class="title"><a href="/ApacheEnableGZipCompression/">Enable GZIP Compression in Apache</a></p><p class="categories"><a href="/categories/Apache/">Apache</a></p></div></article></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">標籤</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/404/"><span class="tag">404</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Apache/"><span class="tag">Apache</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CMD/"><span class="tag">CMD</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DATEADD/"><span class="tag">DATEADD</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DATEDIFF/"><span class="tag">DATEDIFF</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DATEPART/"><span class="tag">DATEPART</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DATETIME/"><span class="tag">DATETIME</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/DBCC-CHECKIDENT/"><span class="tag">DBCC CHECKIDENT</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Django/"><span class="tag">Django</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GitHub/"><span class="tag">GitHub</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/HSTS/"><span class="tag">HSTS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/HTTPS/"><span class="tag">HTTPS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hexo/"><span class="tag">Hexo</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/IIS/"><span class="tag">IIS</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/INSERT-INTO-FROM/"><span class="tag">INSERT INTO FROM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MSSQL/"><span class="tag">MSSQL</span><span class="tag">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PIVOT/"><span class="tag">PIVOT</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Perl/"><span class="tag">Perl</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/PowerShell/"><span class="tag">PowerShell</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SELECT-INTO-SELECT/"><span class="tag">SELECT INTO SELECT</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SQL/"><span class="tag">SQL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SSL/"><span class="tag">SSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SSMS/"><span class="tag">SSMS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Windows/"><span class="tag">Windows</span><span class="tag">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/htaccess/"><span class="tag">htaccess</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/special-variables/"><span class="tag">special variables</span><span class="tag">1</span></a></div></div></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">文章目錄</h3><ul class="menu-list"><li><a class="level is-mobile" href="#現在時間"><span class="level-left"><span class="level-item">1</span><span class="level-item">現在時間</span></span></a></li><li><a class="level is-mobile" href="#取得現在年、月、日"><span class="level-left"><span class="level-item">2</span><span class="level-item">取得現在年、月、日</span></span></a></li><li><a class="level is-mobile" href="#DATEPART"><span class="level-left"><span class="level-item">3</span><span class="level-item">DATEPART</span></span></a></li><li><a class="level is-mobile" href="#DATEDIFF"><span class="level-left"><span class="level-item">4</span><span class="level-item">DATEDIFF</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#DATEDIFF-Syntax"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">DATEDIFF Syntax</span></span></a></li><li><a class="level is-mobile" href="#datepart-Arguments"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">datepart Arguments</span></span></a></li><li><a class="level is-mobile" href="#startdate-x2F-enddate-可解析格式"><span class="level-left"><span class="level-item">4.3</span><span class="level-item">startdate/enddate 可解析格式</span></span></a></li></ul></li><li><a class="level is-mobile" href="#DATEADD"><span class="level-left"><span class="level-item">5</span><span class="level-item">DATEADD</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#DATEADD-Syntax"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">DATEADD Syntax</span></span></a></li><li><a class="level is-mobile" href="#datepart-arguments"><span class="level-left"><span class="level-item">5.2</span><span class="level-item">datepart arguments</span></span></a></li><li><a class="level is-mobile" href="#date-可解析格式"><span class="level-left"><span class="level-item">5.3</span><span class="level-item">date 可解析格式</span></span></a></li></ul></li><li><a class="level is-mobile" href="#DATEADD-x2F-DATEDIFF綜合應用"><span class="level-left"><span class="level-item">6</span><span class="level-item">DATEADD/DATEDIFF綜合應用</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.png" alt="CM Cheng Notes" height="28"></a><p class="is-size-7"><span>&copy; 2023 CM Cheng</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-TW");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到頁首" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此網站使用Cookie來改善您的體驗。",
+          dismiss: "知道了！",
+          allow: "允許使用Cookie",
+          deny: "拒絕",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="請輸入關鍵字..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"請輸入關鍵字...","untitled":"(無標題)","posts":"文章","pages":"頁面","categories":"分類","tags":"標籤"});
+        });</script></body></html>

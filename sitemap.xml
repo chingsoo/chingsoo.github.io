@@ -2,6 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chingsoo.github.io/mssql-pivot/</loc>
+    
+    <lastmod>2023-04-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/mssql-dbcc-checkident/</loc>
+    
+    <lastmod>2023-04-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/mssql-find-tables-contain-specified-column-name/</loc>
+    
+    <lastmod>2023-04-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/mssql-insert-into-select-select-into-from/</loc>
+    
+    <lastmod>2023-04-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/mssql-check-table-and-view-column-datatype/</loc>
+    
+    <lastmod>2023-04-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/mssql-datetime/</loc>
+    
+    <lastmod>2023-04-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/django-deploy-on-iis/</loc>
     
     <lastmod>2023-04-25</lastmod>
@@ -131,15 +185,6 @@
     <loc>https://chingsoo.github.io/windows-cmd-tasklist-taskkill/</loc>
     
     <lastmod>2023-04-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chingsoo.github.io/mssql-find-tables-contain-specified-column-name/</loc>
-    
-    <lastmod>2023-04-20</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -356,6 +401,69 @@
   </url>
   
   <url>
+    <loc>https://chingsoo.github.io/tags/SQL/</loc>
+    <lastmod>2023-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/DATETIME/</loc>
+    <lastmod>2023-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/DATEPART/</loc>
+    <lastmod>2023-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/DATEDIFF/</loc>
+    <lastmod>2023-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/DATEADD/</loc>
+    <lastmod>2023-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/DBCC-CHECKIDENT/</loc>
+    <lastmod>2023-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/SELECT-INTO-SELECT/</loc>
+    <lastmod>2023-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/INSERT-INTO-FROM/</loc>
+    <lastmod>2023-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chingsoo.github.io/tags/PIVOT/</loc>
+    <lastmod>2023-04-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/tags/Perl/</loc>
     <lastmod>2023-04-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -370,14 +478,14 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/SSMS/</loc>
+    <loc>https://chingsoo.github.io/tags/SSL/</loc>
     <lastmod>2023-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/SSL/</loc>
+    <loc>https://chingsoo.github.io/tags/SSMS/</loc>
     <lastmod>2023-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
