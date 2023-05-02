@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chingsoo.github.io/posts/8977/</loc>
+    
+    <lastmod>2023-05-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/posts/8637/</loc>
     
     <lastmod>2023-05-02</lastmod>
@@ -11,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/posts/8977/</loc>
+    <loc>https://chingsoo.github.io/posts/f2c5/</loc>
     
     <lastmod>2023-05-02</lastmod>
     
@@ -568,28 +577,7 @@
   </url>
   
   <url>
-    <loc>https://chingsoo.github.io/tags/args/</loc>
-    <lastmod>2023-05-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chingsoo.github.io/tags/kwargs/</loc>
-    <lastmod>2023-05-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://chingsoo.github.io/tags/pip/</loc>
-    <lastmod>2023-05-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://chingsoo.github.io/tags/upgrade/</loc>
     <lastmod>2023-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
