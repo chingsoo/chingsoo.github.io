@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://chingsoo.github.io/posts/8a5d/</loc>
+    
+    <lastmod>2023-05-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chingsoo.github.io/posts/101d/</loc>
     
     <lastmod>2023-05-08</lastmod>
@@ -355,7 +364,7 @@
 
   <url>
     <loc>https://chingsoo.github.io/</loc>
-    <lastmod>2023-05-08</lastmod>
+    <lastmod>2023-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
