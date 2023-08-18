@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 Allow: /archives/
-
+Allow: /images/
 Disallow: /vendors/
 Disallow: /fonts/
 Disallow: /vendors/
